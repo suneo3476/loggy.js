@@ -12,7 +12,7 @@
 	input => e, w, i, s in lower & upper case or 0 ~ 3
 */
 
-module.exports = function (message, type) {
+const loggy = (message, type) => {
 
   type = (typeof type) !== 'undefined' ? type : 0;
 
@@ -25,19 +25,33 @@ module.exports = function (message, type) {
   }
 
   const colors = [
-    "#cc0000", // error   - type 0
-    "#ff8800", // warning - type 1
-    "#2a9fd6", // info    - type 2
-    "#77b300"  // success - type 3
+    "#ec3090", // error   - type 0
+    "#ef8800", // warning - type 1
+    "#5acfd6", // info    - type 2
+    "#77e300"  // success - type 3
+  ];
+  
+  const borders = [
+    "#bc0060", // error   - type 0
+    "#cf5800", // warning - type 1
+    "#2a9fa6", // info    - type 2
+    "#47c300"  // success - type 3
   ];
   
   const type_str = ["ERROR  ","WARNING","INFO   ","SUCCESS"];
-  
+
   const str = [
     "%c " + type_str[type] + " %c" + message + " ",
-    "margin:1px 0;padding:1px;background:#060606;color:" + colors[type],
-    "margin:1px 0;padding:1px;background:#060606;color:#ffffff"
+    this.colormode == 'dark' ?
+    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:" + colors[type]:
+    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;color:#ffffff;background:" + colors[type],
+    this.colormode == 'dark' ?
+    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:#ffffff" :
+    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:#ffffff"
   ];
   
   console.log.apply(console,str);
+
 }
+
+module.exports = loggy;
