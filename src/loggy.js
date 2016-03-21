@@ -42,11 +42,7 @@ const loggy = (message, type) => {
 
   const str = [
     "%c " + type_str[type] + " %c" + message + " ",
-    this.colormode == 'dark' ?
-    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:" + colors[type]:
-    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;color:#ffffff;background:" + colors[type],
-    this.colormode == 'dark' ?
-    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:#ffffff" :
+    "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:" + colors[type],
     "border:1px solid "+borders[type]+";margin:1px 0;padding:1px;background:#060606;color:#ffffff"
   ];
   

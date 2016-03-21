@@ -43,4 +43,12 @@ var loggy = function loggy(message, type) {
 };
 
 module.exports = loggy;
+
+/*test code*/
+loggy("error test!", 0);
+loggy("warning test!", "w");
+loggy("info test!", "I");
+loggy("success test!", "3");
+loggy("invalit type test!", 5);
+
 },{}]},{},[1]);
